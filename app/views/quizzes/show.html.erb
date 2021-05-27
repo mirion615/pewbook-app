@@ -1,0 +1,10 @@
+<div class="contents row">
+  <% @quizzes.each do |quiz| %>
+    <div class="content_post";>
+      <p><%= quiz.question %></p>
+      <span class="name">
+        <%= quiz.correct %>
+      </span>
+    </div>
+  <% end %>
+</div>
