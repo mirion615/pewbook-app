@@ -19,9 +19,7 @@
 | correct            | string     | null: false       |
 | incorrect1         | string     | null: false       |
 | incorrect2         | string     | null: false       |
-| answer             | integer    | null: false       |
 | answer_description | string     |
-| title_id           | references | foreign_key: true |
 | user_id            | references | foreign_key: true |
 | category_id        | references | foreign_key: true |
 
