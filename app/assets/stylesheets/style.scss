@@ -1,15 +1,89 @@
+.top-page-header {
+  width: 100vw;
+  max-width: 101.1%;
+  background-color: #000;
+  height: 100%;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  padding: 0 32px;
+  height: 72px;
+  
+  &-header {
+    display: flex;
+    height: 100%;
+    margin-left: 30px;
+    justify-content: space-between;
+  }
+  
+  &-left {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &-right {
+    list-style: none;
+    display: flex;
+    min-width: 200px;
+    align-items: center;
+  }
+}
+
+.logo {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  margin-right: 32px;
+  font-size: 19px;
+  height: 50px;
+  padding: 14.5px 15px;
+}
+
+.header-link {
+  font-size: 18px;
+  padding: 0 2px 0 0;
+  margin-right: 35px;
+  letter-spacing: 1.8px;
+  vertical-align: sub;
+  border-bottom: 2px solid transparent;
+  color: white;
+  height: 50px;
+  line-height: 21px;
+  text-decoration: none;
+}
+
+.home {
+  border-bottom: 1px solid #fff;
+}
+
+.navbar-right {
+  display: flex;
+  min-width: 200px;
+  align-items: center;
+}
+
+.user-nickname {
+  font-weight: bold;
+}
+
 form input,
 form textarea {
   width: 100%;
   margin: 5px 0 15px;
   padding: 10px;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
   border-radius: 5px;
   font-family: "游ゴシック", "YuGothic";
 }
 
 form input[type="submit"] {
-  background-color: #57C3E9;
+  background-color: #57c3e9;
   border-radius: 20px;
   color: #fff;
   border: 0;
