@@ -10,34 +10,22 @@
 - has_many: answer_histories
 
 
-## titlesテーブル
+## quizzesテーブル
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
 | title              | string     | null: false       |
 | description        | string     | null: false       |
-| quiz_id            | references | foreign_key: true |
-
-### Association
-- has_one: quiz
-
-
-## quizzesテーブル
-| Column             | Type       | Options           |
-| ------------------ | ---------- | ----------------- |
-| question            | string     | null: false       |
+| question           | string     | null: false       |
 | correct            | string     | null: false       |
 | incorrect1         | string     | null: false       |
 | incorrect2         | string     | null: false       |
-| answer             | integer    | null: false       |
-| description        | string     |
-| title_id           | references | foreign_key: true |
+| answer_description | string     |
 | user_id            | references | foreign_key: true |
 | category_id        | references | foreign_key: true |
 
 ### Association
 - belongs_to: user
 - belongs_to: category
-- belongs_to : title
 - has_one : answer_history
 
 
