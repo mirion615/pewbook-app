@@ -8,6 +8,8 @@
       </ul>
       <ul class='navbar-right'>
         <% if user_signed_in? %>
+          <li><%= link_to '学習する', '#', class: "header-link start-quiz" %></li>
+          <li><%= link_to '問題を作成する', new_quiz_path, class: "header-link make-quiz" %></li>
           <li><%= link_to current_user.nickname, '#', class: "header-link user-nicknama" %></li>
           <li><%= link_to 'Log out', destroy_user_session_path, method: :delete,class: "header-link logout" %></li>
         <% else %>

@@ -1,0 +1,56 @@
+<%= render 'header' %>
+<div class="items-sell-main">
+  <h2 class="items-sell-title">クイズを作成</h2>
+  <%= form_with model: @quiz, url: new_quiz_path,  local: true do |f| %>
+
+  <%# <%= render 'shared/error_messages', model: f.object %>
+
+
+  <div class="quizzes-category">
+    <div class="form">
+      <div class="weight-bold-text">
+        カテゴリー
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"quiz-category"}) %>
+    </div>
+  </div>
+
+  <div class="new-quiz">
+    <div class="weight-bold-text">
+      出題単語
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :question, class:"quiz-question", id:" quiz-name", placeholder:"出題する英単語", maxlength:"18" %>
+    <div class="weight-bold-text">
+      正解の選択肢
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :correct, class:"quiz-correct", id:" correct-name", placeholder:"正解の選択肢を入力", maxlength:"18" %>
+    <div class="weight-bold-text">
+      間違いの選択肢１
+      <span class="indispensable">必須</span>
+      <%= f.text_field :incorrect1, class:"quiz-incorrect1", id:" incorrect1-name", placeholder:"間違いの選択肢を入力", maxlength:"18" %>
+    </div>
+    <div class="weight-bold-text">
+      間違いの選択肢２
+      <span class="indispensable">必須</span>
+      <%= f.text_field :incorrect2, class:"quiz-incorrect2", id:" incorrect2-name", placeholder:"間違いの選択肢を入力", maxlength:"18" %>
+    </div>
+    <div class="answer-explain">
+      <div class="weight-bold-text">
+        答えの解説
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :text, class:"answer-text", id:"answer-info", placeholder:"答えの解説（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+    </div>
+  </div>
+
+  <div class="sell-btn-contents">
+    <%= f.submit "出題する" ,class:"sell-btn" %>
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+  <% end %>
+</div>
+
+<%= render 'footer' %>
