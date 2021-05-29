@@ -10,19 +10,19 @@
           :value="quiz.csrfToken"
           name="authenticity_token"></el-input>
       </el-form-item>
-      <el-form-item label="Category">
+      <!-- <el-form-item label="Category">
         <el-select 
           v-model="quiz.category_id" 
           placeholder="please select category"
           name="quiz[category_id]">
-          <el-option label="--" value="1" id="1"></el-option>
-          <el-option label="HTML" value="2" id="2"></el-option>
-          <el-option label="CSS" value="3" id="3"></el-option>
-          <el-option label="Java Script" value="4" id="4"></el-option>
-          <el-option label="Ruby" value="5" id="5"></el-option>
-          <el-option label="Vue.js" value="6" id="6"></el-option>
+          <el-option label="--" value="1"></el-option>
+          <el-option label="HTML" value="2"></el-option>
+          <el-option label="CSS" value="3"></el-option>
+          <el-option label="Java Script" value="4"></el-option>
+          <el-option label="Ruby" value="5"></el-option>
+          <el-option label="Vue.js" value="6"></el-option>
         </el-select>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="Question">
         <el-input
           v-model="quiz.question"
