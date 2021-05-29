@@ -1,7 +1,6 @@
-<%= render 'header' %>
 <div class="items-sell-main">
   <h2 class="items-sell-title">クイズを作成</h2>
-  <%= form_with model: @quiz, url: new_quiz_path,  local: true do |f| %>
+  <%= form_with model: @quiz, url: quizzes_path,  local: true do |f| %>
 
   <%# <%= render 'shared/error_messages', model: f.object %>
 
@@ -42,7 +41,7 @@
         答えの解説
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :text, class:"answer-text", id:"answer-info", placeholder:"答えの解説（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :answer_description, class:"answer-text", id:"answer-info", placeholder:"答えの解説（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
     </div>
   </div>
 
@@ -52,5 +51,3 @@
   </div>
   <% end %>
 </div>
-
-<%= render 'footer' %>
