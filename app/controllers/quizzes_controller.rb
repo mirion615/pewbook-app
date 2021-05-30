@@ -12,9 +12,9 @@ class QuizzesController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
-      redirect_to root_path
+      redirect_to quiz_path(id: 1)
     else
-      render :new
+      render :show
     end
   end
 
