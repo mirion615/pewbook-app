@@ -94,7 +94,7 @@ export default {
               case 201:
                 this.$emit('add', res.data)
                 this.quiz = {
-                  categoryId: 0,
+                  categoryId: '',
                   question: '', 
                   correct: '', 
                   incorrect1: '', 

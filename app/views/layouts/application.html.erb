@@ -10,6 +10,7 @@
   </head>
 
   <body>
+
     <header class='header'>
     <div class="header__bar">
       <h1 class="grid-6"><a href="/">Pewbook</a></h1>
@@ -23,7 +24,7 @@
             <li><%= link_to 'Vue.js', '#' %></li>
           </ul>
         </span>
-        <%= link_to '自分の単語', new_quiz_path, class: "" %>
+        <%= link_to '単語一覧 & 検索', new_quiz_path, class: "" %>
       </div>
       <div class='user_nav'>
         <% if user_signed_in? %>
