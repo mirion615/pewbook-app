@@ -9,8 +9,8 @@ class Quiz < ApplicationRecord
     validates :incorrect2
     validates :answer_description
     
-    # with_options numericality: { other_than: 0 } do
-    #   validates :category_id
-    # end
+    with_options numericality: { other_than: 1 } do
+      validates :category_id
+    end
   end
 end
