@@ -1,5 +1,15 @@
 <template>
   <el-form :model="quiz">
+    <el-form-item label="Category">
+      <el-select v-model="quiz.categoryId" placeholder="Select">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
+    </el-form-item>
     <el-form-item label="Question">
       <el-input
         v-model="quiz.question"
@@ -43,29 +53,48 @@ export default {
   data() {
     return {
       quiz: {
+        category_id: '',
         question: '',
         correct: '',
         incorrect1: '',
         incorrect2: '',
         answerDescription: '',
       },
+      options: [{
+          value: '2',
+          label: 'HTML'
+        }, {
+          value: '3',
+          label: 'CSS'
+        }, {
+          value: '4',
+          label: 'Java Script'
+        }, {
+          value: '5',
+          label: 'Ruby'
+        }, {
+          value: '6',
+          label: 'Vue.js'
+      }],
     };
   },
   methods: {
     createQuiz() {
       axios.post('/api/v1/quizzes', {
         quiz: {
+          category_id: this.quiz.categoryId,
           question: this.quiz.question, 
           correct: this.quiz.correct, 
           incorrect1: this.quiz.incorrect1,
           incorrect2: this.quiz.incorrect2,
-          answer_description: this.quiz.answerDescription
+          answer_description: this.quiz.answerDescription          
           }})
           .then(res => {
             switch (res.status) {
               case 201:
                 this.$emit('add', res.data)
                 this.quiz = {
+                  categoryId: 0,
                   question: '', 
                   correct: '', 
                   incorrect1: '', 
