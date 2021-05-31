@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_action :move_to_index, only: [:show]
 
   def show
+    @name = current_user.nickname
+    @quizzes = Quiz.where(user_id: current_user.id) 
   end
 
 
