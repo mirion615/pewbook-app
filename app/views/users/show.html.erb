@@ -1,1 +1,11 @@
 <h1><%= @user.nickname %>のユーザーページ</h1>
+
+<div class="contents row" >
+  <p><%= @name %>さんの単語一覧</p>
+    <% @quizzes.each do |quiz| %>
+      <%= quiz.question %>
+      <%= quiz.correct %>
+      <%= quiz.category.name%>
+      <%= quiz.answer_description %>
+    <% end %>
+</div>
