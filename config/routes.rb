@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/show'
   devise_for :users
   root "quizzes#index"
   resources :quizzes
+  resources :users, only: [:show]
 
   namespace :api, { format: 'json'} do
     namespace :v1 do
