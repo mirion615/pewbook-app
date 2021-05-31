@@ -61,19 +61,19 @@ export default {
         answerDescription: '',
       },
       options: [{
-          value: 2,
+          value: '2',
           label: 'HTML'
         }, {
-          value: 3,
+          value: '3',
           label: 'CSS'
         }, {
-          value: 4,
+          value: '4',
           label: 'Java Script'
         }, {
-          value: 5,
+          value: '5',
           label: 'Ruby'
         }, {
-          value: 6,
+          value: '6',
           label: 'Vue.js'
       }],
     };

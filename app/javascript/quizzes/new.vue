@@ -62,5 +62,4 @@ export default {
       this.quizzes.push(quiz);
     },
   },
-};
-</script>
+
