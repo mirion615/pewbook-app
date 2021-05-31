@@ -1,1 +1,42 @@
 <%= javascript_pack_tag 'quizzes/new' %>
+
+<div class="new-quiz-form">
+  <%= form_with model: @quiz, url: quizzes_path, local: true do |f| %>
+
+    <div class="new-quiz-category_id">
+      <%= f.label :category_id,  "Category" %><br>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+    </div>
+
+    <div class="new-quiz-question">
+      <%= f.label :question,  "Question" %><br>
+      <%= f.text_field :question, class:"input-quiz", autofocus: true, autocomplete: "off", required: true %>
+    </div>
+
+    <div class="new-quiz-correct">
+      <%= f.label :correct,  "正しい答え" %><br>
+      <%= f.text_field :correct, class:"input-quiz", autocomplete: "off", required: true %>
+    </div>
+
+    <div class="new-quiz-incorrect1">
+      <%= f.label :incorrect1,  "間違い１つ目" %><br>
+      <%= f.text_field :incorrect1, class:"input-quiz", autocomplete: "off", required: true %>
+    </div>
+
+    <div class="new-quiz-incorrect2">
+      <%= f.label :incorrect2,  "間違い２つ目" %><br>
+      <%= f.text_field :incorrect2, class:"input-quiz", autocomplete: "off", required: true %>
+    </div>
+
+    <div class="new-quiz-answer_description">
+      <%= f.label :answer_description,  "英単語の解説" %><br>
+      <%= f.text_area :answer_description, class:"input-quiz", autocomplete: "off", required: true %>
+    </div>
+
+    <div class="field actions new-code-send">
+      <label for="code-submit">SEND</label>
+      <%= f.submit "SEND", class: "submit-btn", id: "code-submit" %>
+    </div>
+
+  <% end %>
+</div>
