@@ -38,6 +38,7 @@
 
 <script>
 import axios from 'axios';
+import { reject } from 'lodash';
 import QuizForm from '../quizzes/quiz-form';
 export default {
   data() {
@@ -61,5 +62,6 @@ export default {
     addQuiz(quiz) {
       this.quizzes.push(quiz);
     },
-  }
-}
+  },
+};
+</script>
