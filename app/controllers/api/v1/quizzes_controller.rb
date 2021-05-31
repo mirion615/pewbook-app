@@ -28,7 +28,7 @@ class Api::V1::QuizzesController < ActionController::API
 
   private
   def quiz_params
-    params.require(:quiz).permit(:id, :question, :correct, :incorrect1, :incorrect2, :answer_description)
+    params.require(:quiz).permit(:id, :question, :correct, :incorrect1, :incorrect2, :answer_description).merge(user_id: current_user.id)
   end
 
 
