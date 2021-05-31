@@ -1,17 +1,55 @@
-<%= render 'header' %>
 <section class="top">
-  <div class="top-image">
-    <div class="top-image-content">
-        <p class="top-title">プログラミング英語を学んで<br>
-          プロのエンジニアを目指そう！
-        </p>
-        <p class="top-subtitle">
-          プログラミング初学者のための英単語学習サイト
-        </p>
-        <div class="top-btn">
+  <div class="container top-image">
+    <p class="top-title">プログラミング英語を学んで<br>
+      プロのエンジニアを目指そう！
+    </p>
+    <p class="top-subtitle">
+      プログラミング初学者のための英単語学習サイト
+    </p>
+    <div class="study-btn">
+      <a href="" class="btn1">学習を始める</a>
+      <a href="" class="btn2">単語帳を作る</a>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <h3 class="section-title">プログラミングの勉強を始めたけど<br>
+    英単語が分からない・・・</h3>
+    <div class="about-cards">
+      <div class="about-card">
+        <%= image_tag "noted.png", class: "card__image"%>
+        <p class="card-title">英単語・英文エラー尽くし</p>
+        <p class="card-content">プログラミングの勉強を始めてまず驚くのは、何を見ても英語ということ。しかし出てくる単語は大体決まっています。繰り返し目にすれば記憶に残り、英単語や英文で挫けることがなくなります。</p>
+      </div>
+      <div class="about-card">
+        <%= image_tag "studybody.png", class: "card__image"%>
+        <p class="card-title">プログラミング特有の訳</p>
+        <p class="card-content">一つの英単語に対して一つの意味しか知らないと、使い方にしっくりこない時があります。これは英単語自体のイメージや多彩や訳し方を知ることで解決できます。</p>
+      </div>
+      <div class="about-card">
+        <%= image_tag "studying.png", class: "card__image"%>
+        <p class="card-title">英単語に時間を割けない</p>
+        <p class="card-content">「英単語を勉強しなきゃいけないのは分かるけど、コードを書くことに時間を使いたい」そのために、一番最短で納得できる訳を用意しました。また、皆さんでアップデートできます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="try">
+  <div class="container">
+    <div class="try-contents">
+      <div class="try-left">
+        <h3 class="section-title ">エンジニアのための英語を効率的に学ぶ</h3>
+        <p>プログラミング学習をスムーズに進められるようになるための英単語帳を用意しました。<br>
+        自分のボキャブラリーを増やし、英語で困ることを無くしましょう。</p>
+        <div class="study-btn">
           <a href="" class="btn1">学習を始める</a>
-          <a href="" class="btn2">単語帳を作る</a>
         </div>
+      </div>
+      <div class="try-right">
+        <%= image_tag "engineer.png", class: ""%>
       </div>
     </div>
   </div>
