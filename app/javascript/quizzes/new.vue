@@ -61,5 +61,5 @@ export default {
     addQuiz(quiz) {
       this.quizzes.push(quiz);
     },
-  },
-
+  }
+}
