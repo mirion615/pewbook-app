@@ -10,6 +10,35 @@
   </head>
 
   <body>
+<<<<<<< Updated upstream
+=======
+    <header class='header'>
+    <div class="header__bar">
+      <h1 class="grid-6"><a href="/">Pewbook</a></h1>
+      <div class='study_nav'>
+        <span><%= "単語を学ぶ" %>
+          <ul class='study__info'>
+            <li><%= link_to 'HTML', '#' %></li>
+            <li><%= link_to 'CSS', '#' %></li>
+            <li><%= link_to 'JavaScript', '#' %></li>
+            <li><%= link_to 'Ruby', '#' %></li>
+            <li><%= link_to 'Vue.js', '#' %></li>
+          </ul>
+        </span>
+        <%= link_to '単語一覧 & 検索', new_quiz_path, class: "" %>
+      </div>
+      <div class='user_nav'>
+        <% if user_signed_in? %>
+          <%= link_to current_user.nickname, '#'%>
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Sign up', new_user_registration_path %>
+          <%= link_to 'Log in', new_user_session_path %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+>>>>>>> Stashed changes
     <%= yield %>
   </body>
 </html>
