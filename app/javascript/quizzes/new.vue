@@ -4,7 +4,7 @@
       <el-button
         icon="el-icon-plus"
         @click="createQuizDialog = true"
-        ciecle></el-button>
+        circle></el-button>
       <el-col :span="12" :offset="6">
         <el-table
           :data="quizzes"
@@ -44,7 +44,7 @@ export default {
     return {
       quizzes: [],
       createQuizDialog: false,
-    };
+      }
   },
   components: {
     QuizForm,
