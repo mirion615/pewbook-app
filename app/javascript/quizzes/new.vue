@@ -30,11 +30,12 @@ export default {
   data() {
     return {
       quizzes: [],
+    }
   },
   created() {
     axios.get('/api/v1/quizzes/new').then((res) => {
       this.quizzes = res.data;
     });
-  },
-};
+  }
+}
 </script>
