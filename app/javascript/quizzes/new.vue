@@ -1,10 +1,6 @@
 <template>
   <div id="quizTable">
     <el-row>
-      <el-button
-        icon="el-icon-plus"
-        @click="createQuizDialog = true"
-        ciecle></el-button>
       <el-col :span="12" :offset="6">
         <el-table
           :data="quizzes"
@@ -25,43 +21,21 @@
         </el-table>
       </el-col>
     </el-row>
-    <el-dialog 
-      :visible.sync="createQuizDialog"
-      width="30%"
-      center>
-      <quiz-form 
-      @close="closeDialog"
-      @add="addQuiz"></quiz-form>
-    </el-dialog>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import { reject } from 'lodash';
-import QuizForm from '../quizzes/quiz-form';
 export default {
   data() {
     return {
       quizzes: [],
-      createQuizDialog: false,
     };
-  },
-  components: {
-    QuizForm,
   },
   created() {
     axios.get('/api/v1/quizzes/new').then((res) => {
       this.quizzes = res.data;
     });
-  },
-  methods: {
-    closeDialog() {
-      this.createQuizDialog = false;
-    },
-    addQuiz(quiz) {
-      this.quizzes.push(quiz);
-    },
   },
 };
 </script>
