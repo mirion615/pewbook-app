@@ -1,11 +1,15 @@
-<h1><%= @user.nickname %>のユーザーページ</h1>
-
 <div class="contents row" >
-  <p><%= @name %>さんの単語一覧</p>
+  <div class="content_title">
+    <p><%= @name %>さんの単語一覧</p>
+  </div>
     <% @quizzes.each do |quiz| %>
-      <%= quiz.question %>
-      <%= quiz.correct %>
-      <%= quiz.category.name%>
-      <%= quiz.answer_description %>
+      <div class="content_quiz">
+        <div class="quiz_column"><%= quiz.question %></div>
+        <div class="quiz_column"><%= quiz.correct %></div>
+        <div class="quiz_column"><%= quiz.category.name%></div>
+        <div class="quiz_column"><%= quiz.answer_description %></div>
+        <%= link_to "削除",quiz_path(quiz.id) , method: :delete, class:"quiz-destroy" %>
+      </div>
     <% end %>
+    <%= paginate @quizzes %>
 </div>

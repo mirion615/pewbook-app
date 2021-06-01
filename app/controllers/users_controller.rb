@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @name = current_user.nickname
-    @quizzes = Quiz.where(user_id: current_user.id) 
+    @quizzes = Quiz.where(user_id: current_user.id).page(params[:page]).per(25).order("created_at DESC")
   end
 
 
