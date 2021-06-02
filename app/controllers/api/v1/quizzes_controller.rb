@@ -9,11 +9,6 @@ class Api::V1::QuizzesController < ActionController::API
     end
   end
   
-  def show
-    @quiz = Quiz.find(params[:id])
-    @quizzes = Quiz.all.sample(5)
-  end
-  
   def update
     @quiz = Quiz.find(params[:id])
     if @quiz.update(quiz_params)
