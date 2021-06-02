@@ -28,6 +28,9 @@ class QuizzesController < ApplicationController
   def quiz
   end
 
+  def word
+  end
+
 
 
   private

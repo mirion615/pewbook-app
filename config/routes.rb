@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :quizzes do
     collection do
       get 'form'
+      get 'word'
     end
   end
   resources :users, only: [:show]

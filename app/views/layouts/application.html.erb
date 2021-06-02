@@ -25,7 +25,7 @@
           </ul>
         </span>
         <%= link_to 'クイズ登録', new_quiz_path, class: "study__ registration" %>
-        <%= link_to '単語一覧', "#" , class: "study__all" %>
+        <%= link_to '単語一覧', word_quizzes_path , class: "study__all" %>
       </div>
       <div class='user_nav'>
         <% if user_signed_in? %>
