@@ -3,7 +3,6 @@ class QuizzesController < ApplicationController
   before_action :move_to_index, only: [:show]
 
   def index
-    @quizzes = Quiz.all
   end
 
   def new

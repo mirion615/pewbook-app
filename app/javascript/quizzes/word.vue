@@ -33,7 +33,7 @@ export default {
     }
   },
   created() {
-    axios.get('/api/v1/quizzes/new').then((res) => {
+    axios.get('/api/v1/quizzes/word').then((res) => {
       this.quizzes = res.data;
     });
   }
