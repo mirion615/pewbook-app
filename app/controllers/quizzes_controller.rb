@@ -25,6 +25,10 @@ class QuizzesController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def quiz
+  end
+
+
 
   private
   def quiz_params

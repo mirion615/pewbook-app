@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root "quizzes#index"
-  resources :quizzes
+  resources :quizzes do
+    collection do
+      get 'form'
+    end
+  end
   resources :users, only: [:show]
 
   namespace :api, { format: 'json'} do
