@@ -1,107 +1,102 @@
 <template>
   <div class='quiz'>
-    <div class="quiz__question">
-      <h1>Question {{quizNum}}. <strong>{{ quizzes.question }}</strong> </h1>
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span class="box__number">Question {{quizNum}}.</span>
+        <div class="box__question">
+          <span><strong>{{ quizzes[quizNum - 1].question }}</strong></span>
+        </div>
+      </div>
       <div v-if="showQuiz">
         <div class="quiz__choices">
-          <ul v-for="choice in aChoice">
-            <li class="q-bar" @click="showAnswer(choice)">{{choices}}</li>
+          <ul v-for="choice in aChoice" class="text item">
+            <li class="q-bar" @click="showAnswer(choice); show2 = !show2">
+              <el-button round class="quiz__btn">{{choice}}</el-button>
+            </li>
           </ul>
         </div>
       </div>
-    </div>
+    </el-card>
 
-
-    <div class="quiz__answer_description" v-if="showExplain">
-      <h2 class="q-correct" v-if="judgement">
-        <i class=""></i>正解！
-      </h2>
-      <h2 class="q-incorrect" v-else>
-        <i class=""></i>不正解...
-      </h2>
-      <p>
-        <strong>解説:</strong>
-        {{quizzes[quizNum - 1].answer_description}}
-      </p>
-      <button @click="next()" type="button" class="btn btn-default">Next</button>
-    </div>
+    <transition>
+        <el-card class="box-card2" v-if="showExplain">
+          <h2 class="is-correct" v-if="judgement">正解！</h2>
+          <h2 class="is-incorrect" v-else>不正解...</h2>
+          <div class="correct">「{{ quizzes[quizNum - 1].correct }}」</div>
+          <div class="answer_description">
+            <strong>解説:</strong>
+            {{quizzes[quizNum - 1].answer_description}}
+          </div>
+          <div class="btn__wrapper">
+            <el-button @click="nextQuiz()" type="primary" round class="btn">Next</el-button>
+          </div>
+        </el-card>
+    </transition>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 export default {
-  name: "Form",
-  components: {
-
-  },
-  data: function() {
+  name: 'Form',
+  components: {},
+  data: function () {
     return {
       quizNum: 1,
       totalQuizNum: 0,
       totalCorrectNum: 0,
-      quizzes: [{
-        question: '',
-        correct:'',
-        uncorrect1:'',
-        uncorrect2:'',
-        answer_description:''
-      }],
-      aChoice:[],
+      show2: true,
+      quizzes: [
+        {
+          question: '',
+          correct: '',
+          incorrect1: '',
+          incorrect2: '',
+          answer_description: '',
+        },
+      ],
+      aChoice: [],
       showQuiz: true,
       showExplain: false,
       judgement: '',
       quizUrl: '',
-    }
+    };
   },
   created() {
+    ``;
     this.getQuizzes();
   },
   methods: {
-    getQuizzes: function() {
-      let quizUrl = location.pathname;
-      let catId = quizUrl.match(/\d/g);
-      let catNum;
-      if (catId) {
-        catNum = catId.join("");
-      }
-
-      if (quizUrl == "/quizzes/" + catNum) {
-        this.axiosUrl = "/api/v1/quizzes" + catNum;
-      } else {
-        this.axiosUrl = "/quizzes";
-      }
-
-    axios
-      .get(this.axiosUrl)
-      .then(res => {
-        this.showQuestion = res.data
+    getQuizzes: function () {
+      axios.get('/api/v1/quizzes/form').then((response) => {
+        this.quizzes = response.data;
         this.totalQuizNum = this.quizzes.length;
-      })
+        this.getChoices(this.quizNum - 1);
+      });
     },
-    shuffleArray: function(array) {
+    shuffleArr: function (array) {
       const arr = array.slice();
-      for (let i = ary.length -1; 0 < i; i--) {
+      for (let i = arr.length - 1; 0 < i; i--) {
         let r = Math.floor(Math.random() * (i + 1));
-        [ary[i], ary[r]] = [ary[r], ary[i]];
+        [arr[i], arr[r]] = [arr[r], arr[i]];
       }
       return arr;
     },
-    getChoices: function(index) {
+    getChoices: function (index) {
       this.aChoice = [];
       this.aChoice.push(
         this.quizzes[index].correct,
-        this.quizzes[index].uncorrexct1,
-        this.quizzes[index].uncorrect2
-      )
-      this.aChoice = this,shuffleArray(this.aChoice)
+        this.quizzes[index].incorrect1,
+        this.quizzes[index].incorrect2
+      );
+      console.log(this.aChoice), (this.aChoice = this.shuffleArr(this.aChoice));
     },
-    showAnswer: function(choice) {
+    showAnswer: function (choice) {
       this.showQuiz = !this.showQuiz;
       this.showExplain = !this.showExplain;
 
-      let answer = this.quizzes[this.quizNum -1].correct;
-      if(choice === answer) {
+      let answer = this.quizzes[this.quizNum - 1].correct;
+      if (choice === answer) {
         this.judgement = true;
         this.totalCorrectNum++;
         this.$refs.totalCorrectNum;
@@ -109,18 +104,120 @@ export default {
         this.judgement = false;
       }
     },
-    nextQuiz: function() {
+    nextQuiz: function () {
       if (this.quizNum < this.totalQuizNum) {
         this.showQuiz = true;
         this.showExplain = false;
         this.quizNum++;
         this.nextCounter++;
-        this.getChoices(this.quizNum -1);
+        this.getChoices(this.quizNum - 1);
       } else {
         this.$refs.result.showResult();
       }
-    }
-  }
+    },
+  },
+};
+</script>
+
+
+<style scope>
+span {
+  font-size: 25px;
 }
 
-</script>
+.quiz {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.box-card,
+.box-card2 {
+  height: 280px;
+  width: 650px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.box-card2 {
+  margin: 187px auto;
+}
+
+.is-incorrect {
+  font-size: 24px;
+  color: #2196f3;
+}
+
+.is-correct {
+  font-size: 24px;
+  color: #ff0000;
+}
+
+.clearfix {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.box__question {
+  text-align: center;
+}
+
+.box__question span {
+  font-size: 38px;
+}
+
+.quiz__choices {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.correct {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.answer_description {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both
+}
+
+.quiz__question{
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn__wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.v-enter {
+  opacity: 0;
+  transform: translateY(-20px)
+} 
+
+.v-leave-to{
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+</style>

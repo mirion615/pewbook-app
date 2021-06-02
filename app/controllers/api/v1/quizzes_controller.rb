@@ -28,7 +28,7 @@ class Api::V1::QuizzesController < ActionController::API
   end
 
   def form
-    @quiz = Quiz.find(params[:id])
+    @quizzes = Quiz.all
   end
 
 

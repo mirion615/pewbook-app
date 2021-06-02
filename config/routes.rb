@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :quizzes do
         collection do
           get 'word'
+          get 'form'
         end
       end
     end
