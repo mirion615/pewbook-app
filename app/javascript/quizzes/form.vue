@@ -88,6 +88,7 @@ export default {
         }
       })
       .then((response) => {
+        console.log(response);
         this.quizzes = response.data
         this.totalQuizNum = this.quizzes.length;
         this.getChoices(this.quizNum - 1);
