@@ -1,5 +1,15 @@
 <template>
-  <div class='quiz'>
+  <div class='content'>
+    <div class="category">
+      <el-row class="category__row">
+        <el-button @click="getQuizzes(2)" type="primary" class="category__btn">HTML</el-button>
+        <el-button @click="getQuizzes(3)" type="success" class="category__btn">CSS</el-button>
+        <el-button @click="getQuizzes(4)"type="info"  class="category__btn">JavaScript</el-button>
+        <el-button @click="getQuizzes(5)"type="warning" class="category__btn">Ruby</el-button>
+        <el-button @click="getQuizzes(6)"type="danger" class="category__btn">Vue.js</el-button>
+      </el-row>
+    </div>
+
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span class="box__number">Question {{quizNum}}.</span>
@@ -32,14 +42,18 @@
           </div>
         </el-card>
     </transition>
+    <quiz-result ref="result" :totalCorrectNum="totalCorrectNum"></quiz-result>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import QuizResult from './result';
 export default {
   name: 'Form',
-  components: {},
+  components: {
+    QuizResult,
+  },
   data: function () {
     return {
       quizNum: 1,
@@ -63,13 +77,19 @@ export default {
     };
   },
   created() {
-    ``;
-    this.getQuizzes();
+    // this.getQuizzes();
   },
   methods: {
-    getQuizzes: function () {
-      axios.get('/api/v1/quizzes/form').then((response) => {
-        this.quizzes = response.data;
+    getQuizzes: function (id) {
+      axios.get('/api/v1/quizzes/form',
+      {
+        params: {
+          category_id: id
+        }
+      })
+      .then((response) => {
+        console.log(response);
+        this.quizzes = response.data
         this.totalQuizNum = this.quizzes.length;
         this.getChoices(this.quizNum - 1);
       });
@@ -120,22 +140,40 @@ export default {
 </script>
 
 
-<style scope>
-span {
-  font-size: 25px;
+<style scoped>
+.content {
+  width: 100%;
+  height: 100%;
 }
 
-.quiz {
-  position: relative;
+.category {
+  height: 60px;
+  width: 652px;
+  margin: 30px auto;
+  display: flex;
+}
+
+.category__row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  height: 400px;
+}
+
+.category__btn {
+  width: 18%;
+  height: 40px;
+  letter-spacing: 1px;
+}
+
+span {
+  font-size: 20px;
 }
 
 .box-card,
 .box-card2 {
   height: 280px;
   width: 650px;
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -144,7 +182,7 @@ span {
 }
 
 .box-card2 {
-  margin: 187px auto;
+  margin: -154px auto;
 }
 
 .is-incorrect {
@@ -193,13 +231,13 @@ span {
 .clearfix:before,
 .clearfix:after {
   display: table;
-  content: "";
+  content: '';
 }
 .clearfix:after {
-  clear: both
+  clear: both;
 }
 
-.quiz__question{
+.quiz__question {
   display: inline-block;
   margin: 0 auto;
   text-align: center;
@@ -212,12 +250,11 @@ span {
 
 .v-enter {
   opacity: 0;
-  transform: translateY(-20px)
-} 
-
-.v-leave-to{
-  opacity: 0;
   transform: translateY(-20px);
 }
 
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
 </style>

@@ -24,11 +24,11 @@ class Api::V1::QuizzesController < ActionController::API
   end
   
   def word
-    @quizzes = Quiz.all
+    @quizzes = Quiz.order('created_at DESC')
   end
 
   def form
-    @quizzes = Quiz.all
+    @quizzes = Quiz.where("category_id = ?", params[:category_id]).order("RAND()").limit(5)
   end
 
 
