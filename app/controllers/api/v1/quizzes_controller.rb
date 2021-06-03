@@ -31,6 +31,10 @@ class Api::V1::QuizzesController < ActionController::API
     @quizzes = Quiz.where("category_id = ?", params[:category_id]).order("RAND()").limit(5)
   end
 
+  def user_words
+    @quizzes = Quiz.where(user_id: current_user.id)
+  end
+
 
   
   private

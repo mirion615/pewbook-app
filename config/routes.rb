@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         collection do
           get 'word'
           get 'form'
+          get 'user_words'
         end
       end
     end
