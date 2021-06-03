@@ -26,7 +26,6 @@
 
 <script>
 import axios from 'axios';
-import QuizForm from '../quizzes/quiz-form';
 export default {
   data() {
     return {
