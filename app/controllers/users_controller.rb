@@ -1,9 +1,20 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
-  before_action :authenticate_user!, only: [:show]
-  before_action :move_to_index, only: [:show]
+  before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:show, :edit, :update]
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if user.update(user_params)
+      redirect_to user_path(current_user.id)
+    else
+      render :edit
+    end
   end
 
 
