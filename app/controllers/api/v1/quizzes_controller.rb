@@ -10,7 +10,7 @@ class Api::V1::QuizzesController < ActionController::API
   end
   
   def update
-    @quiz = Quiz.find(params[:id])
+    @quiz = Quiz.find_by(id: params[:id])
     if @quiz.update(quiz_params)
       render status: 200, json: { status:200 }
     end
@@ -32,7 +32,7 @@ class Api::V1::QuizzesController < ActionController::API
   end
 
   def user_words
-    @quizzes = Quiz.where(user_id: current_user.id)
+    @quizzes = Quiz.where(user_id: current_user.id).order('created_at DESC')
   end
 
 
