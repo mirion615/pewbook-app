@@ -11,18 +11,25 @@
 
   <body>
 
-    <header class='header'>
+  <header class='header'>
     <div class="header__bar">
-      <h1 class="grid-6"><a href="/">Pewbook</a></h1>
+      <h1 class="header__title"><a href="/">Pewbook</a></h1>
       <div class='study_nav'>
         <%= link_to '単語を学ぶ', form_quizzes_path %>
-        <%= link_to 'クイズ登録', new_quiz_path, class: "study__ registration" %>
-        <%= link_to '単語一覧', word_quizzes_path , class: "study__all" %>
+        <%= link_to 'クイズ登録', new_quiz_path%>
+        <%= link_to '単語一覧', word_quizzes_path%>
       </div>
       <div class='user_nav'>
         <% if user_signed_in? %>
-          <%= link_to current_user.nickname, user_path(current_user.id)%>
-          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+          <span><%= current_user.nickname %>
+            <ul>
+              <li class="user__info">
+                <%= link_to "My Page" , user_path(current_user.id)%>
+                <%= link_to "My Words" , "#" %>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </span>
         <% else %>
           <%= link_to 'Sign up', new_user_registration_path %>
           <%= link_to 'Log in', new_user_session_path %>
