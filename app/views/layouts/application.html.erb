@@ -26,7 +26,6 @@
             <ul>
               <li class="user__info">
                 <%= link_to "My Page" , user_path(current_user.id)%>
-                <%= link_to "My Words" , "#" %>
                 <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
               </li>
             </ul>
