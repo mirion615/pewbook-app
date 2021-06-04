@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_093504) do
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_05_28_093034) do
 
   create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "question", null: false
@@ -25,10 +19,9 @@ ActiveRecord::Schema.define(version: 2021_05_27_093504) do
     t.string "incorrect2", null: false
     t.string "answer_description", null: false
     t.bigint "user_id"
-    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_quizzes_on_category_id"
+    t.integer "category_id"
     t.index ["user_id"], name: "index_quizzes_on_user_id"
   end
 
@@ -45,6 +38,5 @@ ActiveRecord::Schema.define(version: 2021_05_27_093504) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "quizzes", "categories"
   add_foreign_key "quizzes", "users"
 end
