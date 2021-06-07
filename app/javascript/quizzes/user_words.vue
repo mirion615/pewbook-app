@@ -82,7 +82,10 @@ export default {
   created() {
     axios.get('/api/v1/quizzes/user_words').then((res) => {
       this.quizzes = res.data;
-    });
+    })
+    .catch(error => {
+        console.log(error);
+      });
   },
   methods: {
     destroyQuiz(id) {

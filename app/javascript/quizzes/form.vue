@@ -76,9 +76,6 @@ export default {
       quizUrl: '',
     };
   },
-  created() {
-    // this.getQuizzes();
-  },
   methods: {
     getQuizzes: function (id) {
       axios.get('/api/v1/quizzes/form',
@@ -92,6 +89,9 @@ export default {
         this.quizzes = response.data
         this.totalQuizNum = this.quizzes.length;
         this.getChoices(this.quizNum - 1);
+      })
+      .catch(error => {
+        console.log(error);
       });
     },
     shuffleArr: function (array) {

@@ -36,7 +36,10 @@ export default {
   created() {
     axios.get('/api/v1/quizzes/word').then((res) => {
       this.quizzes = res.data;
-    });
+    })
+    .catch(error => {
+        console.log(error);
+      });
   },
 }
 </script>
