@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :quizzes
   has_one_attached :avatar
 
-  with_options format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/, message: '英数字混合で登録してください' } do
+  with_options format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6,}+\z/i, message: '英数字混合で登録してください' } do
     validates :password
   end
 
