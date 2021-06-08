@@ -8,6 +8,7 @@
     </p>
     <div class="study-btn">
       <%= link_to '単語を学ぶ', form_quizzes_path, class: "btn1"%>
+      <%= link_to 'ゲストログイン(閲覧用)',users_guest_sign_in_path, method: :post, class: "btn1"%>
     </div>
   </div>
 </section>
@@ -44,7 +45,7 @@
         <p>プログラミング学習をスムーズに進められるようになるための英単語帳を用意しました。<br>
         自分のボキャブラリーを増やし、英語で困ることを無くしましょう。</p>
         <div class="study-btn">
-          <a href="" class="btn1">単語を学ぶ</a>
+          <%= link_to '単語を学ぶ', form_quizzes_path, class: "btn1"%>
         </div>
       </div>
       <div class="try-right">
