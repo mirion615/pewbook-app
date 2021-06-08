@@ -3,12 +3,16 @@
     <el-dialog
       title="クイズ結果"
       :visible.sync="centerDialogVisible"
+      :close-on-click-modal="false"
       width="50%"
-      center>
+      center
+      >
       <span v-if="totalCorrectNum > 0 " class="answer__number">{{totalCorrectNum}}問正解！</span>
       <span v-else class="answer__number">残念。。。もう一度挑戦してみましょう！</span>
-      <span slot="footer" class="dialog-footer">
+      <div>正解率 {{ totalCorrectNum / 5 * 100 }} %</div>
+      <span slot="footer" class="dialog-footer"
         <el-button @click="start" round class="btn">リトライ</el-button>
+        <el-button @click="quizFinish" type="danger" round class="btn">終了する</el-button>
         <el-button @click="tweet" type="primary" round class="btn">ツイート</el-button>
       </span>
     </el-dialog>
@@ -19,7 +23,17 @@
 <script>
 export default {
   name: "QuizResult",
-  props: ["totalCorrectNum"],
+  props: {
+    correctPercentageObject: {
+      type: Object
+    },
+    totalCorrectNum: {
+      type: Number
+    },
+    totalQuizNum: {
+      type: Number
+    }
+  },
   data: function() {
     return {
       show: false,
@@ -32,7 +46,7 @@ export default {
       this.centerDialogVisible = true
     },
     start: function() {
-      window.location.href = "/quizzes/form";
+      location.href = "/quizzes/form";
     },
     tweet: function() {
       if (this.totalCorrectNum > 0) {
@@ -42,7 +56,10 @@ export default {
       } else {
         "#"
       }
-    }
+    },
+    quizFinish: function() {
+      location.href = "/"
+    },
   }
 
 

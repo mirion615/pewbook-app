@@ -38,7 +38,8 @@
             {{quizzes[quizNum - 1].answer_description}}
           </div>
           <div class="btn__wrapper">
-            <el-button @click="nextQuiz()" type="primary" round class="btn">Next</el-button>
+            <el-button v-if="!isQuizFinish" @click="nextQuiz" type="primary" round class="btn">Next</el-button>
+            <el-button v-show="isQuizFinish" @click="showResult" type="primary" round class="btn">結果を見る</el-button>
           </div>
         </el-card>
     </transition>
@@ -72,8 +73,10 @@ export default {
       aChoice: [],
       showQuiz: true,
       showExplain: false,
+      isQuizFinish: false,
       judgement: '',
       quizUrl: '',
+      correctPercentageObject: {}
     };
   },
   methods: {
@@ -93,6 +96,9 @@ export default {
       .catch(error => {
         console.log(error);
       });
+      if (this.quizNum == 4) {
+        this.endQuiz();
+      }
     },
     shuffleArr: function (array) {
       const arr = array.slice();
@@ -131,10 +137,20 @@ export default {
         this.quizNum++;
         this.nextCounter++;
         this.getChoices(this.quizNum - 1);
-      } else {
-        this.$refs.result.showResult();
+      }
+      if (this.quizNum >= this.totalQuizNum) {
+        this.endQuiz();
       }
     },
+    endQuiz: function() {
+      this.isQuizFinish = true;
+      this.correctPercentageObject = {
+        correctScore: this.totalCorrectNum
+      };
+    },
+    showResult: function() {
+      this.$refs.result.showResult()
+    }
   },
 };
 </script>
