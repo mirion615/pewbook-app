@@ -69,7 +69,7 @@
           </el-table>
     </div>
     <div class="quiz__ranking_chart">
-      <bar-chart :chartData="total" ref="totalChart"></bar-chart>
+      <bar-chart :chartData="total" ref="totalChart" v-show="rankingType === '1'"></bar-chart>
     </div>
   </div>
 </template>
@@ -86,9 +86,8 @@ export default {
     return {
       quizzes: [],
       search:'',
+      loaded: false,
       rankingAlldata: {},
-      week: {},
-      month: {},
       total: {},
       rankingType: "1"
     }
@@ -98,8 +97,8 @@ export default {
       this.quizzes = res.data;
       }).catch(error => {console.log(error)
       });
-    axios.get("/api/v1/rankings").then(response => {
-      this.rankingAlldata = response.data;
+    axios.get("/api/v1/rankings").then((res) => {
+      this.rankingAlldata = res.data;
       this.setRanking();
     });
   },
@@ -138,7 +137,7 @@ export default {
 
     setRanking() {
       this.total = Object.assign({}, this.total, {
-        labels: this.rankingAlldata.user_id,
+        labels: this.rankingAlldata.nickname,
         datasets: [
           {
             label: ["最高得点率"],
@@ -151,6 +150,7 @@ export default {
         this.$refs.totalChart.renderBarChart();
       });
     },
+
   }
 }
 </script>
