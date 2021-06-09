@@ -69,7 +69,7 @@
           </el-table>
     </div>
     <div class="quiz__ranking_chart">
-      <bar-chart></bar-chart>
+      <bar-chart :chartData="total" ref="totalChart"></bar-chart>
     </div>
   </div>
 </template>
@@ -85,16 +85,23 @@ export default {
   data() {
     return {
       quizzes: [],
-      search:''
+      search:'',
+      rankingAlldata: {},
+      week: {},
+      month: {},
+      total: {},
+      rankingType: "1"
     }
   },
-  created() {
+  mounted() {
     axios.get('/api/v1/quizzes/user_words').then((res) => {
       this.quizzes = res.data;
-    })
-    .catch(error => {
-        console.log(error);
+      }).catch(error => {console.log(error)
       });
+    axios.get("/api/v1/rankings").then(response => {
+      this.rankingAlldata = response.data;
+      this.setRanking();
+    });
   },
   methods: {
     destroyQuiz(id) {
@@ -122,11 +129,28 @@ export default {
         input.focus()
       }
     },
+    
     hideInput(event) {
       let inputParent = event.target.parentNode
       inputParent.classList.add('hidden')
       inputParent.previousElementSibling.classList.remove('hidden')
-    }
+    },
+
+    setRanking() {
+      this.total = Object.assign({}, this.total, {
+        labels: this.rankingAlldata.user_id,
+        datasets: [
+          {
+            label: ["最高得点率"],
+            backgroundColor: "rgba(0, 170, 248, 0.47)",
+            data: this.rankingAlldata.sum_score
+          }
+        ]
+      });
+      this.$nextTick(() => {
+        this.$refs.totalChart.renderBarChart();
+      });
+    },
   }
 }
 </script>

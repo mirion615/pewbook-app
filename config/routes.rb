@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
+  
   resources :users, only: [:show]
   
   resources :quizzes do
@@ -17,6 +19,12 @@ Rails.application.routes.draw do
 
   resources :rankings, only: :create
   
+  namespace :api, { format: 'json' } do
+    namespace :v1 do
+      resources :rankings, only: :index
+    end
+  end
+
   namespace :api, { format: 'json'} do
     namespace :v1 do
       resources :quizzes do
