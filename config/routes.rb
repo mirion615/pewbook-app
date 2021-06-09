@@ -6,14 +6,16 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
-
   resources :users, only: [:show]
+  
   resources :quizzes do
     collection do
       get 'form'
       get 'word'
     end
   end
+
+  resources :rankings, only: :create
   
   namespace :api, { format: 'json'} do
     namespace :v1 do
