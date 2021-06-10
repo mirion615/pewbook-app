@@ -80,6 +80,8 @@ Pewbookはプログラミングでよく使われる英単語を非常に効率�
 - chart.js 2.8
 - vue-chartjs 3.4.2
 - RSpec
+- AWS
+  - S3
 
 # テスト
 RSpec  
