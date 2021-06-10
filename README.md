@@ -56,6 +56,8 @@ Pewbookの対象は「プログラミングの勉強を始めたけど、英語�
 - chart.js 2.8
 - vue-chartjs 3.4.2
 - RSpec
+- AWS
+  - S3
 
 # テスト
 RSpec
