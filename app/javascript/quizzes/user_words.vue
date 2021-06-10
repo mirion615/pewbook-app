@@ -14,8 +14,8 @@
             width="80%"
             height="100%"
             @cell-dblclick="showInput">
-            <el-row :gutter="20">
-              <el-col :span="4">
+            <el-row>
+              <el-col>
                 <el-table-column
                   prop="question"
                   label="Endlish">
@@ -28,7 +28,7 @@
                   </template>
                 </el-table-column>
               </el-col>
-              <el-col :span="4">
+              <el-col>
                 <el-table-column
                   prop="correct"
                   label="Japanese">
@@ -41,7 +41,7 @@
                   </template>
                 </el-table-column>
               </el-col>
-              <el-col :span="10">
+              <el-col>
                 <el-table-column
                   prop="answer_description"
                   label="Answer Description">
@@ -54,7 +54,7 @@
                   </template>
                 </el-table-column>
               </el-col>
-              <el-col :span="2">
+              <el-col>
                 <el-table-column align="right">
                   <template v-slot="scope">
                     <el-button
@@ -68,28 +68,31 @@
             </el-row>
           </el-table>
     </div>
+    <!-- <label>
+      <input class="ranking-radio" type="radio" v-model="rankingType" value="1" />総合
+             </label>
     <div class="quiz__ranking_chart">
       <bar-chart :chartData="total" ref="totalChart" v-show="rankingType === '1'"></bar-chart>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import {reject} from 'lodash'
-import BarChart from "../quizzes/barChart";
+// import BarChart from "../quizzes/BarChart";
 export default {
-  components: {
-    BarChart
-  },
+  // components: {
+  //   BarChart
+  // },
   data() {
     return {
       quizzes: [],
       search:'',
-      loaded: false,
-      rankingAlldata: {},
-      total: {},
-      rankingType: "1"
+      // loaded: false,
+      // rankingAlldata: {},
+      // total: null,
+      // rankingType: "1"
     }
   },
   mounted() {
@@ -97,10 +100,11 @@ export default {
       this.quizzes = res.data;
       }).catch(error => {console.log(error)
       });
-    axios.get("/api/v1/rankings").then((res) => {
-      this.rankingAlldata = res.data;
-      this.setRanking();
-    });
+    // axios.get("/api/v1/rankings").then((res) => {
+    //   this.rankingAlldata = res.data;
+    //   this.setRanking();
+    // }).catch(error => {console.log(error)
+    // });
   },
   methods: {
     destroyQuiz(id) {
@@ -135,21 +139,21 @@ export default {
       inputParent.previousElementSibling.classList.remove('hidden')
     },
 
-    setRanking() {
-      this.total = Object.assign({}, this.total, {
-        labels: this.rankingAlldata.nickname,
-        datasets: [
-          {
-            label: ["最高得点率"],
-            backgroundColor: "rgba(0, 170, 248, 0.47)",
-            data: this.rankingAlldata.sum_score
-          }
-        ]
-      });
-      this.$nextTick(() => {
-        this.$refs.totalChart.renderBarChart();
-      });
-    },
+    // setRanking() {
+    //   this.total = Object.assign({}, this.total, {
+    //     labels: this.rankingAlldata.nickname,
+    //     datasets: [
+    //       {
+    //         label: ["最高得点率"],
+    //         backgroundColor: "red",
+    //         data: this.rankingAlldata.sum_score
+    //       }
+    //     ]
+    //   });
+    //   this.$nextTick(() => {
+    //     this.$refs.totalChart.renderBarChart();
+    //   });
+    // },
 
   }
 }
@@ -160,7 +164,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%;
+  height: 575px;
   padding: 30px 90px;
   margin: 0 auto;
 }

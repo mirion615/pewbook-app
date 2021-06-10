@@ -5,7 +5,7 @@ class RankingsController < ApplicationController
     @correctRatio = @ranking.percentage_correct_answer
     @userId = @ranking.user_id
     @ranking.save
-    redirect_to root_path
+    redirect_to form_quizzes_path
   end
 
   private

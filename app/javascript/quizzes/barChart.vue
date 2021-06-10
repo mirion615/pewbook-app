@@ -6,11 +6,24 @@ export default {
   props: {
     chartData: {
       type: Object,
-      default: null
-    }
+      }
   },
   methods: {
-    renderBarChart() {this.renderChart(this.chartData,{scales: {yAxes: [{ticks: {beginAtZero: true,min: 0,max: 10 }}]}});},
+    renderBarChart() {
+      this.renderChart(
+        this.chartData,{
+          scales: {
+            yAxes: [{
+              ticks: 
+              {beginAtZero: true,
+              min: 0,
+              max: 10 }
+              }
+            ]
+          }
+        }
+      );
+    },
   }
 }
 </script>
