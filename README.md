@@ -81,8 +81,8 @@ Pewbookはプログラミングでよく使われる英単語を非常に効率�
 - RSpec
 
 # テスト
-RSpec
-単体テスト(model)
+RSpec  
+単体テスト(model)  
 統合テスト(system)
 
 # 今後の課題点
