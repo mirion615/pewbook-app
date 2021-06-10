@@ -20,7 +20,7 @@
  
 ## 特徴
 
-Pewbookの対象は**「プログラミングの勉強を始めたけど、英語に苦手意識がある方」**です。
+Pewbookの対象は「**プログラミングの勉強を始めたけど、英語に苦手意識がある方**」です。
 
 プログラミングには英語が必須です。具体的には以下のような状況で必須となります。
 1. コードを書く時
@@ -91,43 +91,30 @@ RSpec
 ### Association
 - has_many: quizzes
 - has_many: answer_histories
+- has_many: rankings
 
 
 ## quizzesテーブル
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
-| title              | string     | null: false       |
-| description        | string     | null: false       |
+| category_id        | integer    | null: false       |
 | question           | string     | null: false       |
 | correct            | string     | null: false       |
 | incorrect1         | string     | null: false       |
 | incorrect2         | string     | null: false       |
-| answer_description | string     |
+| answer_description | string     | null: false       |
 | user_id            | references | foreign_key: true |
-| category_id        | references | foreign_key: true |
+
 
 ### Association
 - belongs_to: user
-- belongs_to: category
-- has_one : answer_history
 
 
-## categories テーブル
-| Column             | Type       | Options           |
-| ------------------ | ---------- | ----------------- |
-| name               | string     | null: false       |
-
-### Association
-- has_many:quizzes 
-
-## answer_historiesテーブル
-| Column             | Type       | Options           |
-| ------------------ | ---------- | ----------------- |
-| answer             | integer    | null: false       |
-| user_id            | references | foreign_key: true |
-| quiz_id            | references | foreign_key: true |
+## rankingsテーブル
+| Column                       | Type       | Options           |
+| ---------------------------- | ---------- | ----------------- |
+| percentage_correct_answer    | integer    | null: false       |
+| user_id                      | references | foreign_key: true |
 
 ### Association
 - belongs_to: user
-- belongs_to: quiz
-- has_one : answer_history
