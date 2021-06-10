@@ -11,7 +11,7 @@
 https://pewbook-app.herokuapp.com/
 
 〈Basic認証〉
-username: katsu
+username: katsu  
 password: 6150
  
 ## DEMO
