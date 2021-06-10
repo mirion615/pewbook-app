@@ -5,6 +5,14 @@
 1. 3択クイズ
 1. 辞書機能
 1. 自分で問題を登録してアウトプット
+
+## アプリURL
+
+https://pewbook-app.herokuapp.com/
+
+〈Basic認証〉
+username: katsu
+password: 6150
  
 ## DEMO
 []() 
