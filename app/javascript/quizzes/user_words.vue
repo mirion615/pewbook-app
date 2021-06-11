@@ -14,8 +14,8 @@
             width="80%"
             height="100%"
             @cell-dblclick="showInput">
-            <el-row>
-              <el-col>
+            <el-row :gutter="20">
+              <el-col :span="4">
                 <el-table-column
                   prop="question"
                   label="Endlish">
@@ -28,7 +28,7 @@
                   </template>
                 </el-table-column>
               </el-col>
-              <el-col>
+              <el-col :span="4">
                 <el-table-column
                   prop="correct"
                   label="Japanese">
@@ -41,7 +41,7 @@
                   </template>
                 </el-table-column>
               </el-col>
-              <el-col>
+              <el-col :span="10">
                 <el-table-column
                   prop="answer_description"
                   label="Answer Description">
@@ -54,7 +54,7 @@
                   </template>
                 </el-table-column>
               </el-col>
-              <el-col>
+              <el-col :span="2">
                 <el-table-column align="right">
                   <template v-slot="scope">
                     <el-button
