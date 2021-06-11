@@ -7,3 +7,21 @@
   width:30%;
   margin: 0 auto;
 }
+
+form input,
+form textarea {
+  width: 100%;
+  margin: 5px 0 15px;
+  padding: 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+}
+
+form input[type="submit"] {
+  background-color: #57c3e9;
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+}

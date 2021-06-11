@@ -18,7 +18,11 @@
 
   <header class='header'>
     <div class="header__bar">
-      <h5 class="header__title"><a href="/">Pewbook</a></h5>
+      <div class="header__title">
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png' %>
+      <% end %>
+      </div>
       <div class='study_nav'>
         <%= link_to '単語を学ぶ', form_quizzes_path %>
         <%= link_to 'クイズ登録', new_quiz_path%>
@@ -35,13 +39,15 @@
             </ul>
           </span>
         <% else %>
+        <div class="user_nav__pre">
           <%= link_to 'Sign up', new_user_registration_path %>
-          <%= link_to 'Log in', new_user_session_path %>
+          <%= link_to 'Sign in', new_user_session_path, class:"signin"%>
+        </div>
         <% end %>
       </div>
     </div>
   </header>
-  <%= render 'layouts/flash' %>
+    <%= render 'layouts/flash' %>
     <%= yield %>
   </body>
 </html>

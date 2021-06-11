@@ -188,7 +188,7 @@ span {
 
 .box-card,
 .box-card2 {
-  height: 280px;
+  height: 320px;
   width: 650px;
   top: 0;
   bottom: 0;
@@ -198,7 +198,7 @@ span {
 }
 
 .box-card2 {
-  margin: -154px auto;
+  margin: -194px auto;
 }
 
 .is-incorrect {

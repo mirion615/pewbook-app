@@ -1,5 +1,8 @@
+body {
+  margin-top: 15px !important;
+}
+
 .header {
-  padding: 10px;
   border-bottom: 1px solid #D8D8D8;
   background-color: #fff;
   position: fixed;
@@ -7,7 +10,7 @@
   left: 0;
   right: 0;
   z-index: 5;
-  height: 62px;
+  height: 75px;
 
   &__bar {
     height: 100%;
@@ -21,7 +24,17 @@
   }
 
   &__title {
-    margin-left: 20px;
+    float: left;
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    & a {
+      display: block;
+      width: 74px;
+      height: 74px;
+      margin-left: 20px;
+    }
   }
 }
 
@@ -37,7 +50,17 @@
 .user_nav {
   display: flex;
   align-items: center;
-  margin-right: 25px;  
+  height: 100%;
+  width: 30%;
+  justify-content: center;
+
+  &__pre {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 }
 
 .user_nav a span {
@@ -62,8 +85,7 @@
 .user_nav ul {
   display: none;
   position: absolute;
-  top: 25px;
-  right: 0;
+  top: 51px;
   border-left: 1px solid #d8d8d8;
   border-right: 1px solid #d8d8d8;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
@@ -83,5 +105,7 @@
   width: 95px;
 }
 
-
+.signin{
+  margin-left: 18px;
+}
 

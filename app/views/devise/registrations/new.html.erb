@@ -1,34 +1,26 @@
-<div class="contents row">
-  <div class="container-user">
-    <h2>Sign up</h2>
+<div class="form-wrapper">
+    <h1>Sign up</h1>
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :nickname %> <em>(10 characters maximum)</em><br />
-        <%= f.text_field :nickname, autofocus: true, maxlength: "10" %>
+      <div class="form-item">
+        <%= f.text_field :nickname, autofocus: true, maxlength: "10", placeholder:"ニックネーム(最大10文字)"%>
       </div>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email %>
+      <div class="form-item">
+        <%= f.email_field :email, placeholder:"Email" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+      <div class="form-item">
+        <%= f.password_field :password, autocomplete: "off", placeholder:"Password(英数字6文字以上)" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <div class="form-item">
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Password(確認用)" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Sign up" %>
+      <div class="button-panel">
+        <%= f.submit "Sign up", class:"button"%>
       </div>
     <% end %>
   </div>

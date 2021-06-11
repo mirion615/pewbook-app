@@ -14,7 +14,7 @@
         >
         <span v-if="totalCorrectNum > 0 " class="answer__number">{{totalCorrectNum}}問正解！</span>
         <span v-else class="answer__number">残念。。。もう一度挑戦してみましょう！</span>
-        <div>正解率 {{ totalCorrectNum / 5 * 100 }} %</div>
+        <div class="answer_percentage">正解率 {{ totalCorrectNum / 5 * 100 }} %</div>
         <input type="hidden" :value="totalCorrectNum / 5 * 100" name="percentage_correct_answer"/>
         <input type="hidden" :value="ranking.csrfToken" name="authenticity_token"/>
         <span slot="footer" class="dialog-footer">
@@ -80,5 +80,13 @@ export default {
   font-size: 25px;
   display: block;
   text-align: center;
+}
+
+.answer_percentage{
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+
 }
 </style>
