@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :move_to_index, only: [:show]
+  before_action :move_to_index, only: [:update, :destroy]
 
   def index
   end
@@ -16,12 +16,6 @@ class QuizzesController < ApplicationController
     else
       render :new
     end
-  end
-  
-  def destroy
-    @quiz = Quiz.find(params[:id])
-    @quiz.destroy
-    redirect_to user_path(current_user.id)
   end
 
   def quiz

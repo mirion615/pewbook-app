@@ -1,14 +1,5 @@
 class Api::V1::QuizzesController < ActionController::API
   
-  def create
-    @quiz = Quiz.new(quiz_params)
-    if @quiz.save
-      render status: :created
-    else
-      render status: 400, json: {status: 400, message: 'Quizの作成に失敗しました'}
-    end
-  end
-  
   def update
     @quiz = Quiz.find_by(id: params[:id])
     if @quiz.update(quiz_params)

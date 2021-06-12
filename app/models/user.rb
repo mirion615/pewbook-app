@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   with_options format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6,}+\z/i, message: '英数字混合で登録してください' } do
-    validates :password
+    validates :password, on: :create
   end
 
   validates :nickname, presence: true, length: { maximum: 10 }
