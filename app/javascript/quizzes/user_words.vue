@@ -68,31 +68,17 @@
             </el-row>
           </el-table>
     </div>
-    <!-- <label>
-      <input class="ranking-radio" type="radio" v-model="rankingType" value="1" />総合
-             </label>
-    <div class="quiz__ranking_chart">
-      <bar-chart :chartData="total" ref="totalChart" v-show="rankingType === '1'"></bar-chart>
-    </div> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import {reject} from 'lodash'
-// import BarChart from "../quizzes/BarChart";
 export default {
-  // components: {
-  //   BarChart
-  // },
   data() {
     return {
       quizzes: [],
       search:'',
-      // loaded: false,
-      // rankingAlldata: {},
-      // total: null,
-      // rankingType: "1"
     }
   },
   mounted() {
@@ -100,11 +86,6 @@ export default {
       this.quizzes = res.data;
       }).catch(error => {console.log(error)
       });
-    // axios.get("/api/v1/rankings").then((res) => {
-    //   this.rankingAlldata = res.data;
-    //   this.setRanking();
-    // }).catch(error => {console.log(error)
-    // });
   },
   methods: {
     destroyQuiz(id) {
@@ -138,23 +119,6 @@ export default {
       inputParent.classList.add('hidden')
       inputParent.previousElementSibling.classList.remove('hidden')
     },
-
-    // setRanking() {
-    //   this.total = Object.assign({}, this.total, {
-    //     labels: this.rankingAlldata.nickname,
-    //     datasets: [
-    //       {
-    //         label: ["最高得点率"],
-    //         backgroundColor: "red",
-    //         data: this.rankingAlldata.sum_score
-    //       }
-    //     ]
-    //   });
-    //   this.$nextTick(() => {
-    //     this.$refs.totalChart.renderBarChart();
-    //   });
-    // },
-
   }
 }
 </script>
