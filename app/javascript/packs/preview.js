@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     document.getElementById('user_avatar').addEventListener('change', function (e) {
-      const imageContent = document.querySelector('img')
+      const imageContent = document.getElementById('avatar')
       if (imageContent) {
         imageContent.remove();
       }

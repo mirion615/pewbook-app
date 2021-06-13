@@ -63,17 +63,19 @@
   border-radius: 50%;
 }
 
-// .field img {
-  //   border-radius: 50%;
-  //   // width: 100px;
-  //   // height: 100px;
-  //   border: double;
-  // }
-  
-  .avatar {
-    width: 50% !important;
+
+.avatar {
+  width: 50% !important;
+}
+
+#avatar-list {
+  & img{
+    border-radius:50%;
+    max-width: 100px;
+    height: auto;
   }
-  
-  .edit_name {
-    width: 50%;
-  }
+}
+
+.edit_name {
+  width: 50%;
+}
