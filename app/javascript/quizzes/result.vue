@@ -18,7 +18,7 @@
         <input type="hidden" :value="totalCorrectNum / 5 * 100" name="percentage_correct_answer"/>
         <input type="hidden" :value="ranking.csrfToken" name="authenticity_token"/>
         <span slot="footer" class="dialog-footer">
-          <el-button @click="quizFinish" type="danger" round class="btn">閉じる</el-button>
+          <el-button @click="start" type="danger" round class="btn">閉じる</el-button>
           <el-button @click="tweet" type="primary" round class="btn">ツイート</el-button>
         </span>
       </el-dialog>
