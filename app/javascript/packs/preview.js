@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const blobImage = document.createElement('img')
       blobImage.setAttribute('src', blob);
       imageElement.appendChild(blobImage);
-      AvatarList.appendChild(imageElement)
+      AvatarList.appendChild(imageElement);
     };
 
     document.getElementById('user_avatar').addEventListener('change', function (e) {
