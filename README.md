@@ -18,17 +18,17 @@ password: 6150
  
 ## DEMO
  
-![](https://gyazo.com/57125f52459f82f5a4288b829d8fb5f8) 
+![３択クイズ](https://gyazo.com/57125f52459f82f5a4288b829d8fb5f8) 
 ３択クイズの様子です。  
 **プログラミング英語に特化した英語クイズ**となっています。
 
 
-![](https://gyazo.com/fe0fadbf85d618c3e1efa145c4bc5ccd) 
+![辞書機能](https://gyazo.com/fe0fadbf85d618c3e1efa145c4bc5ccd) 
 登録されている英単語を検索できるので、辞書としても使えます。  
 **プログラミングに適した日本語訳や、用語の解説**も確認できます。
 
 
-![](https://gyazo.com/e14fc4ff607a947110bc21619f11e6f6)
+![アウトプット機能](https://gyazo.com/e14fc4ff607a947110bc21619f11e6f6)
 自分で英単語や解説を登録できるので、**学習のアウトプット用**としても使えます。
  
 ## 特徴
