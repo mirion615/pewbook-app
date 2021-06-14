@@ -77,8 +77,6 @@ Pewbookはプログラミングでよく使われる英単語を非常に効率�
 - mysql2 0.4.4
 - webpacker 4.0
 - element-ui 2.15.2
-- chart.js 2.8
-- vue-chartjs 3.4.2
 - RSpec
 - AWS
   - S3

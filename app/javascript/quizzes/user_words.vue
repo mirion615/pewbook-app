@@ -1,73 +1,71 @@
 <template>
-  <div class="table__charts">
-    <div class="quiz__table">
-      <div class="quiz__search">
-        <el-input 
-          v-model="search" 
-          class="input" 
-          placeholder="登録した英単語を検索"
-          clearable/>
-      </div>
-          <el-table
-            :data="quizzes.filter(
-              data => !search || data.question.includes(search))"
-            width="80%"
-            height="100%"
-            @cell-dblclick="showInput">
-            <el-row :gutter="20">
-              <el-col :span="4">
-                <el-table-column
-                  prop="question"
-                  label="Endlish">
-                  <template v-slot="scope">
-                    <div>{{ scope.row.question }}</div>
-                    <el-input
-                      class="hidden"
-                      v-model="scope.row.question"
-                      @blur="updateQuiz(scope.row); hideInput($event)"></el-input>
-                  </template>
-                </el-table-column>
-              </el-col>
-              <el-col :span="4">
-                <el-table-column
-                  prop="correct"
-                  label="Japanese">
-                  <template v-slot="scope">
-                    <div>{{ scope.row.correct }}</div>
-                    <el-input
-                      class="hidden"
-                      v-model="scope.row.correct"
-                      @blur="updateQuiz(scope.row); hideInput($event)"></el-input>
-                  </template>
-                </el-table-column>
-              </el-col>
-              <el-col :span="10">
-                <el-table-column
-                  prop="answer_description"
-                  label="Answer Description">
-                  <template v-slot="scope">
-                    <div>{{ scope.row.answer_description }}</div>
-                    <el-input
-                      class="hidden"
-                      v-model="scope.row.answer_description"
-                      @blur="updateQuiz(scope.row); hideInput($event)"></el-input>
-                  </template>
-                </el-table-column>
-              </el-col>
-              <el-col :span="2">
-                <el-table-column align="right">
-                  <template v-slot="scope">
-                    <el-button
-                      @click="destroyQuiz(scope.row.id)"
-                      type="danger" 
-                      icon="el-icon-delete" 
-                      circle></el-button>
-                  </template>
-                </el-table-column>
-              </el-col>
-            </el-row>
-          </el-table>
+  <div class="quiz__table">
+    <div class="quiz__search">
+      <el-input 
+        v-model="search" 
+        class="input" 
+        placeholder="登録した英単語を検索"
+        clearable/>
     </div>
+        <el-table
+          :data="quizzes.filter(
+            data => !search || data.question.includes(search))"
+          width="80%"
+          height="100%"
+          @cell-dblclick="showInput">
+          <el-row :gutter="18">
+            <el-col :span="3">
+              <el-table-column
+                prop="question"
+                label="Endlish">
+                <template v-slot="scope">
+                  <div>{{ scope.row.question }}</div>
+                  <el-input
+                    class="hidden"
+                    v-model="scope.row.question"
+                    @blur="updateQuiz(scope.row); hideInput($event)"></el-input>
+                </template>
+              </el-table-column>
+            </el-col>
+            <el-col :span="3">
+              <el-table-column
+                prop="correct"
+                label="Japanese">
+                <template v-slot="scope">
+                  <div>{{ scope.row.correct }}</div>
+                  <el-input
+                    class="hidden"
+                    v-model="scope.row.correct"
+                    @blur="updateQuiz(scope.row); hideInput($event)"></el-input>
+                </template>
+              </el-table-column>
+            </el-col>
+            <el-col :span="10">
+              <el-table-column
+                prop="answer_description"
+                label="Answer Description">
+                <template v-slot="scope">
+                  <div>{{ scope.row.answer_description }}</div>
+                  <el-input
+                    class="hidden"
+                    v-model="scope.row.answer_description"
+                    @blur="updateQuiz(scope.row); hideInput($event)"></el-input>
+                </template>
+              </el-table-column>
+            </el-col>
+            <el-col :span="2">
+              <el-table-column align="right">
+                <template v-slot="scope">
+                  <el-button
+                    @click="destroyQuiz(scope.row.id)"
+                    type="danger" 
+                    icon="el-icon-delete" 
+                    circle></el-button>
+                </template>
+              </el-table-column>
+            </el-col>
+          </el-row>
+        </el-table>
   </div>
 </template>
 
@@ -129,7 +127,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   height: 575px;
-  padding: 30px 90px;
+  padding: 0 90px 30px 90px;
   margin: 0 auto;
 }
 
