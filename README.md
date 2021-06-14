@@ -8,7 +8,7 @@
 
 ## アプリURL
 
-https://pewbook-app.herokuapp.com/
+http://54.150.109.227/
 
 〈Basic認証〉  
 username: katsu  
