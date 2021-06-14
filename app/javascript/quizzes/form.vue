@@ -160,12 +160,13 @@ export default {
 .content {
   width: 100%;
   height: 100%;
+  padding: 30px;
 }
 
 .category {
   height: 60px;
   width: 652px;
-  margin: 30px auto;
+  margin: 15px auto;
   display: flex;
 }
 
