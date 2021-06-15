@@ -4,7 +4,7 @@
       <el-input 
         v-model="search" 
         class="input" 
-        placeholder="登録した英単語を検索"
+        placeholder="自分で登録した英単語を検索"
         clearable/>
     </div>
         <el-table
