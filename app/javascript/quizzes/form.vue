@@ -26,6 +26,10 @@
           </ul>
         </div>
       </div>
+      <div v-show="hide" class="card_hide">
+        <em>上のボタンを押すとクイズが始まります！</em>
+        <em>一回につき５問出題します！</em>
+      </div>
     </el-card>
 
     <transition>
@@ -76,7 +80,8 @@ export default {
       isQuizFinish: false,
       judgement: '',
       quizUrl: '',
-      correctPercentageObject: {}
+      correctPercentageObject: {},
+      hide: true
     };
   },
   methods: {
@@ -109,6 +114,7 @@ export default {
       return arr;
     },
     getChoices: function (index) {
+      this.hide = false
       this.aChoice = [];
       this.aChoice.push(
         this.quizzes[index].correct,
@@ -273,5 +279,11 @@ span {
 .v-leave-to {
   opacity: 0;
   transform: translateY(-20px);
+}
+
+.card_hide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
