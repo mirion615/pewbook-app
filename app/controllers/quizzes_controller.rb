@@ -19,7 +19,6 @@ class QuizzesController < ApplicationController
   end
 
   def form
-    @ranking_data = Ranking.joins(:user).limit(5).order('sum_percentage_correct_answer DESC').group(:nickname).sum(:percentage_correct_answer)
   end
 
   def word
