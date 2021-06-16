@@ -1,6 +1,10 @@
-<div class="ranking">
-  <h2>ランキング（１位〜６位）</h2>
-  <div class="ranking_chart">
-    <%= bar_chart @ranking_data, width: '800px', height: '600px', suffix: "点",xtitle:"累計獲得点数" , ytitle:"順位" %>
+<div class="footerFixed">
+  <div class="ranking">
+    <h2>ランキング（１位〜６位）</h2>
+    <div class="ranking_chart">
+      <%= bar_chart @ranking_data, width: '800px', height: '600px', suffix: "点",xtitle:"累計獲得点数" , ytitle:"順位" %>
+    </div>
   </div>
+
+  <%= render 'layouts/footer' %>
 </div>
