@@ -11,40 +11,44 @@
   </head>
 
   <body>
-
-  <header class='header'>
-    <div class="header__bar">
-      <div class="header__title">
-      <%= link_to root_path do %>
-        <%= image_tag 'logo.png' %>
-      <% end %>
-      </div>
-      <div class='study_nav'>
-        <%= link_to '単語を学ぶ', form_quizzes_path %>
-        <%= link_to 'ランキング', rankings_path %>
-        <%= link_to 'クイズ登録', new_quiz_path%>
-        <%= link_to '単語一覧', word_quizzes_path%>
-      </div>
-      <div class='user_nav'>
-        <% if user_signed_in? %>
-          <span><%= current_user.nickname %>
-            <ul>
-              <li class="user__info">
-                <%= link_to "My Page" , user_path(current_user.id)%>
-                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </span>
-        <% else %>
-        <div class="user_nav__pre">
-          <%= link_to 'Sign up', new_user_registration_path %>
-          <%= link_to 'Sign in', new_user_session_path, class:"signin"%>
+    <div class="footerFixed">
+      <header class='header'>
+        <div class="header__bar">
+          <div class="header__title">
+          <%= link_to root_path do %>
+            <%= image_tag 'logo.png' %>
+          <% end %>
+          </div>
+          <div class='study_nav'>
+            <%= link_to '単語を学ぶ', form_quizzes_path %>
+            <%= link_to 'ランキング', rankings_path %>
+            <%= link_to 'クイズ登録', new_quiz_path%>
+            <%= link_to '単語一覧', word_quizzes_path%>
+          </div>
+          <div class='user_nav'>
+            <% if user_signed_in? %>
+              <span><%= current_user.nickname %>
+                <ul>
+                  <li class="user__info">
+                    <%= link_to "My Page" , user_path(current_user.id)%>
+                    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              </span>
+            <% else %>
+            <div class="user_nav__pre">
+              <%= link_to 'Sign up', new_user_registration_path %>
+              <%= link_to 'Sign in', new_user_session_path, class:"signin"%>
+            </div>
+            <% end %>
+          </div>
         </div>
-        <% end %>
-      </div>
-    </div>
-  </header>
-    <%= render 'layouts/flash' %>
-    <%= yield %>
-  </body>
+      </header>
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+      <footer>
+        <p>Copyright © 2021 Pewbook Inc.</p>
+      </footer>
+    </body>
+  </div>
 </html>
