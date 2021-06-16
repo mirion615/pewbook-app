@@ -642,7 +642,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 75px;
 }
 
 h1,
@@ -755,12 +755,6 @@ section {
 
 .try-right {
   width: 40%;
-}
-
-footer{
-  background-color: #082b48;
-  color: white;
-  padding: 20px 0;
 }
 
 .copyright{
