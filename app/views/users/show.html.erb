@@ -14,9 +14,30 @@
       <%= button_to "プロフィールを編集", edit_user_registration_path, method: :get, class: "profile__edit__btn"%>
       <%= link_to (image_tag 'config.png', size: '25x25', class:"config-img"), edit_user_registration_path %>
     </div>
-
   </div>
 </div>
 
-<%= javascript_pack_tag 'quizzes/user_words' %>
-<%= stylesheet_pack_tag 'quizzes/user_words' %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">English</th>
+      <th scope="col">Japanese</th>
+      <th scope="col">Category</th>
+      <th scope="col">Incorrect1</th>
+      <th scope="col">Incorrect2</th>
+      <th scope="col">Answer Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @quizzes.each do |quiz| %>
+    <tr>
+      <td><%= quiz.question %></td>
+      <td><%= quiz.correct %></td>
+      <td><%= quiz.category.name %></td>
+      <td><%= quiz.incorrect1 %></td>
+      <td><%= quiz.incorrect2 %></td>
+      <td><%= quiz.answer_description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
