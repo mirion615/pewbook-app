@@ -27,9 +27,10 @@
         <%= f.text_field :incorrect2, class:"input-quiz", autocomplete: "off", required: true %>
       </div>
 
-      <div class="new-form new-quiz-answer_description">
+      <div class="new-form new-quiz-answer_description" >
         <%= f.label :answer_description,  "英単語の解説" %><br>
-        <%= f.text_area :answer_description, class:"input-quiz", autocomplete: "off", required: true %>
+        <%= f.text_area :answer_description, class:"input-quiz", autocomplete: "off", required: true, id:"quiz_text" %>
+        <div id="char_num">0文字</div>
       </div>
 
       <div class="new-form field actions new-code-send">
@@ -41,3 +42,5 @@
 
   <%= render 'layouts/footer' %>
 </div>
+
+<%= javascript_pack_tag 'count' %>
