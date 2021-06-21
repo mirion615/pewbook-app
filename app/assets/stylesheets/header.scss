@@ -78,16 +78,13 @@
       display: block;
     }
   }
+
+  & a span {
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+  }
 }
-
-.user_nav a span {
-  margin-right: 20px;
-  cursor: pointer;
-  position: relative;
-}
-
-
-.user_nav 
 
 .user__info {
   background-color: #f0f0f0;
