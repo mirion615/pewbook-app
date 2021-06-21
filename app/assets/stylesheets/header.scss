@@ -88,16 +88,16 @@
 
 .user__info {
   background-color: #f0f0f0;
-}
 
-.user__info a {
-  display: block;
-  padding: 13px 5px;
-  margin: 0;
-  text-align: center;
-  border-bottom: 1px solid #d8d8d8;
-  font-size: 14px;
-  width: 95px;
+  & a {
+    display: block;
+    padding: 13px 5px;
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid #d8d8d8;
+    font-size: 14px;
+    width: 95px;
+  }
 }
 
 .signin{
