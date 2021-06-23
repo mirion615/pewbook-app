@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :authenticate_user!, only: [:show, :edit, :update]
-  before_action :move_to_index, only: [:edit, :update]
+  before_action :move_to_index, only: [:show, :edit, :update]
 
   def show
-    @quizzes = Quiz.where(user_id: current_user.id)
   end
 
   def update
