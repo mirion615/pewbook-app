@@ -30,7 +30,7 @@
                 <ul>
                   <li class="user__info">
                     <%= link_to "My Page" , user_path(current_user.id)%>
-                    <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+                    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
                   </li>
                 </ul>
               </span>
