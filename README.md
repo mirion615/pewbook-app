@@ -10,7 +10,7 @@
 
 ## アプリURL
 
-http://54.150.109.227/
+https://www.pewbook.net/
 
 〈Basic認証〉  
 username: katsu  
