@@ -160,6 +160,7 @@ export default {
         correctScore: this.totalCorrectNum
       };
     },
+    //result.vueを表示
     showResult: function() {
       this.$refs.result.showResult()
     }
