@@ -85,6 +85,7 @@ export default {
     };
   },
   methods: {
+    // apiを叩いて選ばれたcategory_idから5つを取得
     getQuizzes: function (id) {
       axios.get('/api/v1/quizzes/form',
       {
@@ -105,6 +106,7 @@ export default {
         this.endQuiz();
       }
     },
+    // 選択肢の順序を入れ替え
     shuffleArr: function (array) {
       const arr = array.slice();
       for (let i = arr.length - 1; 0 < i; i--) {
@@ -113,6 +115,7 @@ export default {
       }
       return arr;
     },
+    //選択肢を取得
     getChoices: function (index) {
       this.hide = false
       this.aChoice = [];
@@ -123,6 +126,7 @@ export default {
       );
       console.log(this.aChoice), (this.aChoice = this.shuffleArr(this.aChoice));
     },
+    //選択肢をクリックしたら、回答と解説を表示する
     showAnswer: function (choice) {
       this.showQuiz = !this.showQuiz;
       this.showExplain = !this.showExplain;
@@ -136,6 +140,7 @@ export default {
         this.judgement = false;
       }
     },
+    //次のクイズへ
     nextQuiz: function () {
       if (this.quizNum < this.totalQuizNum) {
         this.showQuiz = true;
@@ -144,6 +149,7 @@ export default {
         this.nextCounter++;
         this.getChoices(this.quizNum - 1);
       }
+      //5問目になったら、endquiz()
       if (this.quizNum >= this.totalQuizNum) {
         this.endQuiz();
       }
