@@ -33,6 +33,7 @@ export default {
       search:''
     }
   },
+  // axiosを使って、apiを叩く。
   created() {
     axios.get('/api/v1/quizzes/word').then((res) => {
       this.quizzes = res.data;
