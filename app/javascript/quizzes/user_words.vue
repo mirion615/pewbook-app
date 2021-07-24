@@ -69,6 +69,7 @@ export default {
       search:'',
     }
   },
+ //axiosを使って、apiを叩く。userが投稿したword情報をgetしておく
   mounted() {
     axios.get('/api/v1/quizzes/user_words').then((res) => {
       this.quizzes = res.data;
@@ -76,6 +77,7 @@ export default {
       });
   },
   methods: {
+    // 投稿した単語を削除する。
     destroyQuiz(id) {
       axios.delete('/api/v1/quizzes/' + id)
         .then(res => {
@@ -83,6 +85,7 @@ export default {
             this.quizzes = reject(this.quizzes, ['id', id])
         })
     },
+    // 投稿した単語情報を更新する。
     updateQuiz(quiz) {
       axios.patch('/api/v1/quizzes/' + quiz.id, {quiz: quiz})
         .then(res => {
@@ -91,6 +94,8 @@ export default {
           }
         })
     },
+    // 
+    // input入力欄を出現させる。(hiddenを取り除く)
     showInput(row, column, cell, event) {
       if (column.property === 'question' || column.property === 'correct' || column.property === 'answer_description' ) {
         let children = cell.firstElementChild.children
@@ -101,7 +106,7 @@ export default {
         input.focus()
       }
     },
-    
+    // input入力欄を隠す(hiddenを付与する)
     hideInput(event) {
       let inputParent = event.target.parentNode
       inputParent.classList.add('hidden')
